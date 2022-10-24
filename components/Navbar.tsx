@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar sticky top-0   bg-base-100">
+      <div className="navbar sticky top-0 px-20  bg-base-100">
         <div className="navbar-start">
           <a className="btn btn-ghost no-animation normal-case text-xl">CCMS</a>
         </div>
