@@ -3,7 +3,7 @@ import React from "react";
 
 const login = () => {
   return (
-    <div>
+    <div data-theme="light">
       <div className="hero min-h-screen  bg-base-200 w-full">
         <div className="hero-content w-3/4 flex-col lg:flex-row-reverse">
           {/* <div className="text-center lg:text-left">

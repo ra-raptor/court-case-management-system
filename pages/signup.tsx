@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import AccountDetails from "../components/signupSteps/AccountDetails";
 import Documents from "../components/signupSteps/Documents";
@@ -55,10 +56,12 @@ const Signup = () => {
       }
     }
   };
-  const createCurrentStep = () => {};
 
   return (
-    <div className=" text-center transition-all flex flex-col justify-center align-center bg-base-200 min-h-screen">
+    <div
+      data-theme="light"
+      className="  text-center transition-all flex flex-col justify-center align-center bg-base-200 min-h-screen"
+    >
       <h1 className="text-5xl  py-6  font-bold">Signup</h1>
       <div className="py-6 mb-12 bg-base-200">
         <ul className="transition-all steps w-1/2">
@@ -95,7 +98,9 @@ const Signup = () => {
               Next
             </div>
           ) : (
-            <div className="btn btn-primary">Submit</div>
+            <Link href="/dashboard">
+              <div className="btn btn-primary">Submit</div>
+            </Link>
           )}
         </div>
       </div>
