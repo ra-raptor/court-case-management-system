@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
+  const close = useRef(null);
   const [sidebarOpen, setsidebarOpen] = useState(true);
   const handleS = () => {
     setsidebarOpen(!sidebarOpen);
@@ -11,7 +12,11 @@ const Dashboard = () => {
     <div>
       <div className="flex h-screen overflow-hidden">
         {/* Sidebar */}
-        <Sidebar sidebarOpen={sidebarOpen} setsidebarOpen={setsidebarOpen} />
+        <Sidebar
+          sidebarOpen={sidebarOpen}
+          closeRef={close}
+          setsidebarOpen={setsidebarOpen}
+        />
 
         {/* Content area */}
         <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -19,7 +24,7 @@ const Dashboard = () => {
           {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
 
           <main>
-            <div className="btn" onClick={handleS}>
+            <div className="btn" ref={close} onClick={handleS}>
               OPEN
             </div>
             <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
