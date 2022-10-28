@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
@@ -21,10 +22,11 @@ const Dashboard = () => {
         {/* Content area */}
         <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
           {/*  Site header */}
+          <Navbar />
           {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
 
           <main>
-            <div className="btn" ref={close} onClick={handleS}>
+            <div className="btn px-3 hidden" ref={close} onClick={handleS}>
               OPEN
             </div>
             <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">

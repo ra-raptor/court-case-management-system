@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+
 import SidebarLinkGroup from "./SidebarGroup";
+import { useRouter } from "next/router";
 const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
   const sidebar = useRef(null);
   const trigger = useRef(null);
-  console.log(sidebarOpen);
   const [sidebarExpanded, setsidebarExpanded] = useState(false);
+  const router = useRouter();
 
   //   useEffect(() => {
   //     if (sidebarOpen) {
@@ -54,6 +56,66 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
     return () => document.removeEventListener("click", clickHandler);
   });
 
+  const svgadd = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        className={` text-slate-400 ${
+          router.pathname.includes("add") && "text-indigo-300"
+        }`}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+
+  const svgDash = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        className={` text-slate-400 ${
+          router.pathname.includes("dashboard") && "text-indigo-300"
+        }`}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"
+      />
+    </svg>
+  );
+
+  const svgCal = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        className={` text-slate-400 ${
+          router.pathname.includes("calender") && "text-indigo-300"
+        }`}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
+      />
+    </svg>
+  );
+
   return (
     <div className={`sidebar-wrapper`}>
       {/* Sidebar backdrop (mobile only) */}
@@ -71,31 +133,33 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
         }`}
         ref={sidebar}
       >
-        <div className="flex flex-col justify-between mb-10 pr-3 sm:px-2">
+        <div className="flex flex-col justify-between mb-10 sm:px-2">
           {/* Close button */}
-          <button
-            ref={trigger}
-            className="lg:hidden text-slate-500 hover:text-slate-400"
-            onClick={() => setsidebarOpen(!sidebarOpen)}
-            aria-controls="sidebar"
-            aria-expanded={sidebarOpen}
-          >
-            <span className="sr-only">Close sidebar</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#fff"
-              className="w-8 h-8"
+          <div className={`flex pb-4 transition ease-in-out flex-row-reverse `}>
+            <button
+              ref={trigger}
+              className="lg:hidden  text-slate-500 hover:text-slate-400"
+              onClick={() => setsidebarOpen(!sidebarOpen)}
+              aria-controls="sidebar"
+              aria-expanded={sidebarOpen}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </button>
+              <span className="sr-only">Close sidebar</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="#fff"
+                className="w-8 h-8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+          </div>
           {/* logo */}
           <div>
             <Link href="/" className="block">
@@ -145,100 +209,44 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
           <div>
             <h3 className="text-xs uppercase text-slate-500 font-semibold pl-3">
               <span
-                className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
+                className=" lg:block lg:sidebar-expanded:hidden  text-center w-6"
                 aria-hidden="true"
               >
                 •••
               </span>
-              <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">
+              {/* <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 Pages
-              </span>
+              </span> */}
             </h3>
             <ul className="mt-3">
               {/* Dashboard */}
               <SidebarLinkGroup
-              // activecondition={
-              //   pathname === "/" || pathname.includes("dashboard")
-              // }
-              >
-                {(handleClick, open) => {
-                  return (
-                    <React.Fragment>
-                      <a
-                        href="#0"
-                        className={`block text-slate-200 hover:text-white truncate transition duration-150`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          sidebarExpanded
-                            ? handleClick()
-                            : setsidebarExpanded(true);
-                        }}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <svg
-                              className="shrink-0 h-6 w-6"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                className={`fill-current text-slate-400`}
-                                d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z"
-                              />
-                              <path
-                                className={`fill-current text-slate-600 `}
-                                d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z"
-                              />
-                              <path
-                                className={`fill-current text-slate-400 `}
-                                d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z"
-                              />
-                            </svg>
-                            <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                              Dashboard
-                            </span>
-                          </div>
-                          {/* Icon */}
-                          <div className="flex shrink-0 ml-2">
-                            <svg
-                              className={`w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 ${
-                                open && "rotate-180"
-                              }`}
-                              viewBox="0 0 12 12"
-                            >
-                              <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                            </svg>
-                          </div>
-                        </div>
-                      </a>
-                      <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                        <ul className={`pl-9 mt-1 ${!open && "hidden"}`}>
-                          <li className="mb-1 last:mb-0">
-                            <Link href="#">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Main
-                              </span>
-                            </Link>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                            <a className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Analytics
-                              </span>
-                            </a>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                            <a className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Fintech
-                              </span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </React.Fragment>
-                  );
-                }}
-              </SidebarLinkGroup>
+                sidebarExpanded={sidebarExpanded}
+                setsidebarExpanded={setsidebarExpanded}
+                svg={svgDash}
+                title="Dashboard"
+                conditionQuery="dashboard"
+                items={[
+                  { name: "Main", url: "/dashboard" },
+                  { name: "My cases", url: "/my-cases" },
+                ]}
+              />
+              <SidebarLinkGroup
+                sidebarExpanded={sidebarExpanded}
+                setsidebarExpanded={setsidebarExpanded}
+                conditionQuery="add-case"
+                items={[{ name: "New Case", url: "/add-case" }]}
+                svg={svgadd}
+                title="Add"
+              />
+              <SidebarLinkGroup
+                sidebarExpanded={sidebarExpanded}
+                setsidebarExpanded={setsidebarExpanded}
+                conditionQuery="calender"
+                items={[{ name: "My Calender", url: "/calender" }]}
+                svg={svgCal}
+                title="Calender"
+              />
             </ul>
           </div>
           {/* More group */}
@@ -255,13 +263,13 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="#fff"
                   className="w-6 h-6"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
                   />
                 </svg>
@@ -270,13 +278,13 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="#fff"
                   className="w-6 h-6"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
                   />
                 </svg>
