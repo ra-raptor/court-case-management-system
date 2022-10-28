@@ -161,7 +161,7 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
             </button>
           </div>
           {/* logo */}
-          <div>
+          <div className="px-1">
             <Link href="/" className="block">
               <svg width="32" height="32" viewBox="0 0 32 32">
                 <defs>

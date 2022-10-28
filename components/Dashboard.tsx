@@ -22,14 +22,14 @@ const Dashboard = () => {
         {/* Content area */}
         <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
           {/*  Site header */}
-          <Navbar />
+          <Navbar openSideBar={setsidebarOpen} ref={close} />
           {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
 
           <main>
-            <div className="btn px-3 hidden" ref={close} onClick={handleS}>
+            {/* <div className="btn px-3 " ref={close} onClick={handleS}>
               OPEN
-            </div>
-            <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+            </div> */}
+            <div className="px-4 sm:px-6 z-10 lg:px-8 py-8 w-full max-w-9xl mx-auto">
               {/* Welcome banner */}
               <div className="relative bg-indigo-200 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
                 {/* Background illustration */}
