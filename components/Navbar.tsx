@@ -8,7 +8,7 @@ interface NB {
 
 const Navbar = React.forwardRef<HTMLDivElement, NB>(
   ({ openSideBar = null }, ref) => {
-    const [loginStatus, setloginStatus] = useState(false);
+    const [loginStatus, setloginStatus] = useState(true);
     const handleSide = () => {
       if (openSideBar !== null) {
         openSideBar(true);
