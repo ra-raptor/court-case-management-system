@@ -239,14 +239,14 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
                 svg={svgadd}
                 title="Add"
               />
-              <SidebarLinkGroup
+              {/* <SidebarLinkGroup
                 sidebarExpanded={sidebarExpanded}
                 setsidebarExpanded={setsidebarExpanded}
                 conditionQuery="calender"
                 items={[{ name: "My Calender", url: "/calender" }]}
                 svg={svgCal}
                 title="Calender"
-              />
+              /> */}
             </ul>
           </div>
           {/* More group */}

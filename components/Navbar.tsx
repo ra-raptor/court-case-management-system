@@ -63,7 +63,7 @@ const Navbar = React.forwardRef<HTMLDivElement, NB>(
             </div>
           )}
           <div className="navbar-end">
-            <Link href="#">
+            {/* <Link href="#">
               <div className="btn mr-4 btn-ghost btn-circle">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,8 +80,8 @@ const Navbar = React.forwardRef<HTMLDivElement, NB>(
                   />
                 </svg>
               </div>
-            </Link>
-            {loginStatus && (
+            </Link> */}
+            {/* {loginStatus && (
               <button className="btn mr-4 btn-ghost btn-circle">
                 <div className="indicator">
                   <svg
@@ -102,7 +102,7 @@ const Navbar = React.forwardRef<HTMLDivElement, NB>(
                   <span className="badge badge-xs badge-primary indicator-item"></span>
                 </div>
               </button>
-            )}
+            )} */}
             {loginStatus ? (
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -119,7 +119,7 @@ const Navbar = React.forwardRef<HTMLDivElement, NB>(
                   tabIndex={0}
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <li>
+                  {/* <li>
                     <a className="justify-between">
                       Profile
                       <span className="badge">New</span>
@@ -127,8 +127,8 @@ const Navbar = React.forwardRef<HTMLDivElement, NB>(
                   </li>
                   <li>
                     <a>Settings</a>
-                  </li>
-                  <li onClick={handleLogOut}>
+                  </li> */}
+                  <li className="border border-black-50" onClick={handleLogOut}>
                     <a>Logout</a>
                   </li>
                 </ul>
