@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-
+import { getCookies, getCookie, setCookies, removeCookies } from "cookies-next";
+const jwt = require("jsonwebtoken");
 import SidebarLinkGroup from "./SidebarGroup";
 import { useRouter } from "next/router";
 const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
@@ -8,7 +9,7 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
   const trigger = useRef(null);
   const [sidebarExpanded, setsidebarExpanded] = useState(false);
   const router = useRouter();
-
+  const [userType, setUserType] = useState(3);
   //   useEffect(() => {
   //     if (sidebarOpen) {
   //       if (
@@ -22,6 +23,13 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
   //   }, [sidebarOpen]);
   useEffect(() => {
     if (typeof window !== "undefined") {
+      var decoded = {
+        firstName: "",
+        userType: 3,
+        email: "",
+      };
+      decoded = jwt.decode(getCookie("auth"));
+      setUserType(decoded?.userType);
       if (window.innerWidth > 1080) {
         setsidebarExpanded(true);
       }
@@ -226,19 +234,19 @@ const Sidebar = ({ sidebarOpen, setsidebarOpen, closeRef }) => {
                 svg={svgDash}
                 title="Dashboard"
                 conditionQuery="dashboard"
-                items={[
-                  { name: "Main", url: "/dashboard" },
-                  { name: "My cases", url: "/my-cases" },
-                ]}
+                items={[{ name: "Main", url: "/dashboard" }]}
               />
-              <SidebarLinkGroup
-                sidebarExpanded={sidebarExpanded}
-                setsidebarExpanded={setsidebarExpanded}
-                conditionQuery="add-case"
-                items={[{ name: "New Case", url: "/add-case" }]}
-                svg={svgadd}
-                title="Add"
-              />
+              {userType !== 0 && (
+                <SidebarLinkGroup
+                  sidebarExpanded={sidebarExpanded}
+                  setsidebarExpanded={setsidebarExpanded}
+                  conditionQuery="addcase"
+                  items={[{ name: "New Case", url: "/addcase" }]}
+                  svg={svgadd}
+                  title="Add"
+                />
+              )}
+
               {/* <SidebarLinkGroup
                 sidebarExpanded={sidebarExpanded}
                 setsidebarExpanded={setsidebarExpanded}

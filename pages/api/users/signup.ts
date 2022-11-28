@@ -1,6 +1,8 @@
 import dbConnect from "../../../utils/dbConnect"
 import User from "../../../models/User"
 import cookie from "cookie";
+const jwt = require('jsonwebtoken')
+import { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
 const bcrpyt = require('bcryptjs')
 
 dbConnect();
@@ -24,6 +26,8 @@ export default async function handler(req,res){
                 
                 
                 const user = await User.create(req.body);
+                const token = jwt.sign({id : user.id,userType : user.accountType,firstName : user.firstName,email : user.email},"VIKAS",{expiresIn : '1h'})
+                setCookies('auth', token, { req, res, maxAge: 60 * 6 * 24 });
                 res.status(200).json({success:true,data:"Success"})
 
             }catch(error){

@@ -8,9 +8,7 @@ import { useRouter } from "next/router";
 export default function Home() {
   const router = useRouter();
   //console.log(getCookie("autha"));
-  if (typeof window === "undefined") {
-    return <></>;
-  }
+
   if (typeof window !== "undefined") {
     // Client-side-only code
     if (getCookie("auth")) {

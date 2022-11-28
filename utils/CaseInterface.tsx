@@ -1,0 +1,29 @@
+export interface CaseInterface {
+  courtState: string;
+  courtType: string;
+  caseNature: string;
+  caseType: string;
+  complainentName: string;
+  complainentEmail: string;
+  complainentPhone: number;
+  complainentDOB: Date;
+  complainentGender: string;
+  complainentPin: string;
+  complainentCity: string;
+  complainentState: string;
+  complainentAddress: string;
+  respondentName: string;
+  respondentEmail: string;
+  respondentPhone: number;
+  respondentDOB: Date;
+  respondentGender: string;
+  respondentPin: string;
+  respondentCity: string;
+  respondentState: string;
+  respondentAddress: string;
+  causeOfAction: string;
+  dateOfAction: Date;
+  locationOfAction: string;
+  actType: string;
+  description: string;
+}
