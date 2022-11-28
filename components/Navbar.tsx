@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { useRouter } from "next/router";
+import {
+  getCookie,
+  setCookies,
+  removeCookies,
+  deleteCookie,
+} from "cookies-next";
 interface NB {
   openSideBar: (boolean) => void;
 }
 
 const Navbar = React.forwardRef<HTMLDivElement, NB>(
   ({ openSideBar = null }, ref) => {
-    const [loginStatus, setloginStatus] = useState(true);
+    const router = useRouter();
+    const defaultLoginStatus = getCookie("auth") ? true : false;
+    const [loginStatus, setloginStatus] = useState(defaultLoginStatus);
     const handleSide = () => {
       if (openSideBar !== null) {
         openSideBar(true);
       }
       console.log(ref);
+    };
+    const handleLogOut = () => {
+      deleteCookie("auth");
+      router.push("/");
     };
     return (
       <div>
@@ -116,7 +128,7 @@ const Navbar = React.forwardRef<HTMLDivElement, NB>(
                   <li>
                     <a>Settings</a>
                   </li>
-                  <li>
+                  <li onClick={handleLogOut}>
                     <a>Logout</a>
                   </li>
                 </ul>

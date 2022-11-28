@@ -6,6 +6,7 @@ import ProfileSetup from "../components/signupSteps/ProfileSetup";
 import Verification from "../components/signupSteps/Verification";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { getCookie, setCookies, removeCookies } from "cookies-next";
 interface Steps {
   name: String;
   jsx: JSX.Element;
@@ -58,6 +59,14 @@ const validateEmail = (email) => {
   );
 };
 const Signup = () => {
+  const router = useRouter();
+  //console.log(getCookie("autha"));
+  if (typeof window !== "undefined") {
+    // Client-side-only code
+    if (getCookie("auth")) {
+      router.push("/dashboard");
+    }
+  }
   const [currentStep, setcurrentStep] = useState<number>(0);
   const [confirmpass, setconfirmpass] = useState<string>("");
   const [userDetails, setuserDetails] = useState<UserDetails>(testUserDetails);
@@ -177,8 +186,6 @@ const Signup = () => {
       }
     }
   };
-
-  const router = useRouter();
 
   const handleSignUp = async (e) => {
     e.preventDefault();

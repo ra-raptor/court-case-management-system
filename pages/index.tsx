@@ -2,8 +2,21 @@ import Head from "next/head";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Home.module.css";
+import { getCookie, setCookies, removeCookies } from "cookies-next";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+  //console.log(getCookie("autha"));
+  if (typeof window === "undefined") {
+    return <></>;
+  }
+  if (typeof window !== "undefined") {
+    // Client-side-only code
+    if (getCookie("auth")) {
+      router.push("/dashboard");
+    }
+  }
   return (
     <div>
       <Head>
@@ -13,7 +26,7 @@ export default function Home() {
       </Head>
 
       <main data-theme="light">
-        <Navbar />
+        <Navbar openSideBar={null} />
         <Hero />
       </main>
 

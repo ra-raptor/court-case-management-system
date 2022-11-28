@@ -2,8 +2,16 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-
+import { getCookie, setCookies, removeCookies } from "cookies-next";
 const Login = () => {
+  const router = useRouter();
+  //console.log(getCookie("autha"));
+  if (typeof window !== "undefined") {
+    // Client-side-only code
+    if (getCookie("auth")) {
+      router.push("/dashboard");
+    }
+  }
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
   const [hidden, sethidden] = useState(true);
@@ -43,7 +51,6 @@ const Login = () => {
       />
     </svg>
   );
-  const router = useRouter();
   const handleLogin = async (e) => {
     console.log("hello");
 
