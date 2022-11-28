@@ -1,6 +1,31 @@
-import React from "react";
-
-const AccountDetails = () => {
+import React, { useState } from "react";
+const validateEmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+};
+const AccountDetails = ({ userDetails, setuserDetails }) => {
+  const emailHandler = (e) => {
+    setuserDetails({ ...userDetails, email: e.target.value });
+    if (!validateEmail(e.target.value)) {
+      seterrorEmail(true);
+    } else {
+      seterrorEmail(false);
+    }
+  };
+  const mobileHandler = (e) => {
+    setuserDetails({ ...userDetails, mobile: e.target.value });
+    if (userDetails.mobile === 0) {
+      seterrorEmail(true);
+    } else {
+      seterrorEmail(false);
+    }
+  };
+  const accountTypeHandler = (e) => {
+    setuserDetails({ ...userDetails, accountType: e.target.value });
+  };
+  const [errorEmail, seterrorEmail] = useState(false);
+  const [errorMobile, seterrorMobile] = useState(false);
   return (
     <div className=" text-center grid place-items-center">
       <div className=" w-1/2  grow flex flex-col px-10">
@@ -8,30 +33,43 @@ const AccountDetails = () => {
 
         <div className="form-control  mb-6">
           <label className="label">
-            <span className="label-text">Your Email</span>
+            <span className="label-text">Your Email ( required )</span>
           </label>
           <input
-            type="text"
+            type="email"
             placeholder="Type here"
-            className="input input-bordered w-300"
+            value={userDetails.email}
+            onChange={emailHandler}
+            autoComplete="true"
+            className={`input input-bordered w-300 ${
+              errorEmail ? "input-error" : ""
+            }`}
           />
         </div>
 
         <div className="form-control  mb-6">
           <label className="label">
-            <span className="label-text">Your Phone Number</span>
+            <span className="label-text">Your Phone Number ( required )</span>
           </label>
           <input
-            type="text"
+            type="phone"
+            value={userDetails.mobile}
+            onChange={mobileHandler}
             placeholder="Type here"
-            className="input input-bordered "
+            className={`input input-bordered w-300 ${
+              errorMobile ? "input-error" : ""
+            }`}
           />
         </div>
         <div className="form-control  mb-6">
           <label className="label">
-            <span className="label-text">Select Account Type</span>
+            <span className="label-text">Select Account Type ( required )</span>
           </label>
-          <select className="select ">
+          <select
+            className="select "
+            value={userDetails.accountType}
+            onChange={accountTypeHandler}
+          >
             <option disabled selected>
               Select Account Type
             </option>
