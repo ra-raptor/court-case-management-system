@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "../components/Hero";
+import LandingNavbar from "../components/LandingNavBar";
 import Navbar from "../components/Navbar";
 
 const landing = () => {
@@ -12,7 +13,7 @@ const landing = () => {
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          <Navbar />
+          <LandingNavbar />
           <Hero />
           <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
             Open drawer
