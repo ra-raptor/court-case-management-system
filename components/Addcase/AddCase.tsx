@@ -22,8 +22,8 @@ const AddCase = () => {
     courtType: "High",
     caseNature: "Civil",
     caseType: "Not Urgent",
-    complainentName: decoded.firstName,
-    complainentEmail: decoded.email,
+    complainentName: decoded?.firstName,
+    complainentEmail: decoded?.email,
     complainentPhone: 0,
     complainentDOB: new Date(),
     complainentGender: "MALE",
@@ -74,7 +74,7 @@ const AddCase = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (tcase.complainentEmail === "") {
-      settcase({ ...tcase, complainentEmail: decoded.email });
+      settcase({ ...tcase, complainentEmail: decoded?.email });
     }
     if (tcase.causeOfAction === "") {
       window.alert("Please enter the cause of action");
