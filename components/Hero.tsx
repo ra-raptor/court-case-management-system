@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Footer from "./Footer";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -14,18 +15,21 @@ const Hero = () => {
             src="https://placeimg.com/260/400/arch"
             className="max-w-sm rounded-lg shadow-2xl"
           />
-          <div>
-            <h1 className="text-5xl mb-8 font-bold">
+          <div className="px-10">
+            <h1 className="text-3xl md:text-5xl text-center md:text-left mb-8 font-bold">
               Court Case Managemnet System!
             </h1>
-            <p className="py-6 mb-4 pr-10">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            <p className="py-6 text-center md:text-left mb-4 pr-10">
+              The project Court case management system is developed for managing
+              and tracking the status and details of a particular case in the
+              court. This system can be used to file a new case and close an
+              already existing case in the court.
             </p>
-            <button className="btn btn-ghost border-gray-50">
-              File New Case
-            </button>
+            <Link href="/login">
+              <button className="btn w-full btn-outline btn-primary btn-ghost border-gray">
+                File New Case
+              </button>
+            </Link>
           </div>
         </div>
       </div>
