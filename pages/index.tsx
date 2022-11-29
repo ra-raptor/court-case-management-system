@@ -27,8 +27,6 @@ export default function Home() {
         <Navbar openSideBar={null} />
         <Hero />
       </main>
-
-      <footer className={styles.footer}></footer>
     </div>
   );
 }

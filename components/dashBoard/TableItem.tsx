@@ -56,12 +56,12 @@ const TableItem = ({ props, showDelete = false }) => {
                 </Link>
               </div>
             )}
-            <Link href="/">
+            <a href={`/case/${props._id}`} target="_blank" rel="noreferrer">
               <span className="font-medium text-indigo-500 hover:text-indigo-600">
                 View
                 <span className="hidden sm:inline"> -&gt;</span>
               </span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

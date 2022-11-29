@@ -7,6 +7,7 @@ import { welcomesvg } from "./welcomesvg";
 import { CaseInterface } from "../../utils/CaseInterface";
 import axios from "axios";
 import TableItem from "./TableItem";
+import Footer from "../Footer";
 
 const Dashboard = () => {
   const [firstName, setFirstName] = useState("");
@@ -144,11 +145,18 @@ const Dashboard = () => {
                       </header>
                       <ul className="my-1">
                         {/* Item */}
-                        {caseListA.map((item, index) => {
-                          return (
-                            <TableItem key={item.causeOfAction} props={item} />
-                          );
-                        })}
+                        {caseListA.length === 0 ? (
+                          <p className="my-3 mx-3">No Cases</p>
+                        ) : (
+                          caseListA.map((item, index) => {
+                            return (
+                              <TableItem
+                                key={item.causeOfAction}
+                                props={item}
+                              />
+                            );
+                          })
+                        )}
                       </ul>
                     </div>
                     {/* "Yesterday" group */}
@@ -158,11 +166,18 @@ const Dashboard = () => {
                       </header>
                       <ul className="my-1">
                         {/* Item */}
-                        {caseListB.map((item, index) => {
-                          return (
-                            <TableItem key={item.causeOfAction} props={item} />
-                          );
-                        })}
+                        {caseListB.length === 0 ? (
+                          <p className="my-3 mx-3">No Cases</p>
+                        ) : (
+                          caseListB.map((item, index) => {
+                            return (
+                              <TableItem
+                                key={item.causeOfAction}
+                                props={item}
+                              />
+                            );
+                          })
+                        )}
                       </ul>
                     </div>
                   </div>
@@ -175,15 +190,19 @@ const Dashboard = () => {
                   <div className="p-3">
                     <ul className="my-1">
                       {/* Item */}
-                      {caseListAll.map((item, index) => {
-                        return (
-                          <TableItem
-                            key={item.causeOfAction}
-                            props={item}
-                            showDelete={true}
-                          />
-                        );
-                      })}
+                      {caseListAll.length === 0 ? (
+                        <p className="my-3 mx-3">No Cases</p>
+                      ) : (
+                        caseListAll.map((item, index) => {
+                          return (
+                            <TableItem
+                              key={item.causeOfAction}
+                              props={item}
+                              showDelete={true}
+                            />
+                          );
+                        })
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -197,6 +216,7 @@ const Dashboard = () => {
           </main>
 
           {/* <Banner /> */}
+          <Footer />
         </div>
       </div>
     </div>

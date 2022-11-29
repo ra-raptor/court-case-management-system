@@ -23,9 +23,11 @@ const LandingNavbar = React.forwardRef<HTMLDivElement, NB>(() => {
     <div>
       <div className="navbar sticky top-0 px-5 md:px-10 z-20 bg-base-100">
         <div className="navbar-start">
-          <a className=" no-animation hidden lg:block normal-case text-xl">
-            CCMS
-          </a>
+          <Link href="/">
+            <span className=" cursor-pointer no-animation hidden lg:block normal-case text-xl">
+              CCMS
+            </span>
+          </Link>
         </div>
         {loginStatus && (
           <div className="navbar-mid  lg:hidden">

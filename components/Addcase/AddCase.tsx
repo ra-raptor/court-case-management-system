@@ -6,6 +6,7 @@ import { CaseInterface } from "../../utils/CaseInterface";
 const jwt = require("jsonwebtoken");
 import axios from "axios";
 import { useRouter } from "next/router";
+import Footer from "../Footer";
 const AddCase = () => {
   const router = useRouter();
   //console.log(getCookie("autha"));
@@ -594,7 +595,7 @@ const AddCase = () => {
               </div>
             </div>
           </main>
-
+          <Footer />
           {/* <Banner /> */}
         </div>
       </div>

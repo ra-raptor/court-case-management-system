@@ -7,6 +7,8 @@ import Verification from "../components/signupSteps/Verification";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { getCookie, setCookies, removeCookies } from "cookies-next";
+import LandingNavbar from "../components/LandingNavBar";
+import Footer from "../components/Footer";
 interface Steps {
   name: String;
   jsx: JSX.Element;
@@ -206,6 +208,7 @@ const Signup = () => {
       data-theme="light"
       className="  text-center transition-all flex flex-col justify-center align-center bg-base-200 min-h-screen"
     >
+      <LandingNavbar />
       <h1 className="text-5xl  py-6  font-bold">Signup</h1>
       <Link href="/login">Back to Login</Link>
       <div className="py-6 mb-12 bg-base-200">
@@ -251,6 +254,7 @@ const Signup = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

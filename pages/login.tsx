@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { getCookie, setCookies, removeCookies } from "cookies-next";
+import Footer from "../components/Footer";
+import LandingNavbar from "../components/LandingNavBar";
 const Login = () => {
   const router = useRouter();
   //console.log(getCookie("autha"));
@@ -85,6 +87,7 @@ const Login = () => {
   };
   return (
     <div data-theme="light">
+      <LandingNavbar />
       <div className="hero min-h-screen  bg-base-200 w-full">
         <div className="hero-content w-3/4 flex-col lg:flex-row-reverse">
           {/* <div className="text-center lg:text-left">
@@ -157,6 +160,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

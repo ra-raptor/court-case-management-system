@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Footer from "./Footer";
 
 const Hero = () => {
   return (
@@ -28,6 +29,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
