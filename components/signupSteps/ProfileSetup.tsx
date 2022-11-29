@@ -27,10 +27,10 @@ const ProfileSetup = ({ userDetails, setuserDetails }) => {
   };
   return (
     <div className=" text-center grid place-items-center">
-      <div className=" w-1/2  grow flex flex-col px-10">
+      <div className=" w-3/4 md:w-1/2  grow flex flex-col px-4 md:px-10">
         <h1 className="mb-6 text-3xl w-lg  font-bold">Profile</h1>
 
-        <div className="flex flex-row items-center w-full">
+        <div className="md:flex flex-row items-center w-full">
           <div className="form-control w-full  mb-6">
             <label className="label">
               <span className="label-text">First Name ( required ) </span>
@@ -55,7 +55,7 @@ const ProfileSetup = ({ userDetails, setuserDetails }) => {
             />
           </div>
         </div>
-        <div className="flex flex-row items-center w-full">
+        <div className="md:flex flex-row items-center w-full">
           <div className="form-control w-full  mb-6">
             <label className="label">
               <span className="label-text">Date of Birth</span>
@@ -100,7 +100,7 @@ const ProfileSetup = ({ userDetails, setuserDetails }) => {
             className="input input-bordered "
           />
         </div>
-        <div className="flex flex-row items-center w-full">
+        <div className="md:flex flex-row items-center w-full">
           <div className="form-control w-full  mb-6">
             <label className="label">
               <span className="label-text">City</span>

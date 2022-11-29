@@ -24,13 +24,13 @@ const LandingNavbar = React.forwardRef<HTMLDivElement, NB>(() => {
       <div className="navbar sticky top-0 px-5 md:px-10 z-20 bg-base-100">
         <div className="navbar-start">
           <Link href="/">
-            <span className=" cursor-pointer no-animation hidden lg:block normal-case text-xl">
+            <span className=" cursor-pointer no-animation  lg:block normal-case text-xl">
               CCMS
             </span>
           </Link>
         </div>
         {loginStatus && (
-          <div className="navbar-mid  lg:hidden">
+          <div className="navbar-mid hidden  lg:hidden">
             <a className=" no-animation normal-case text-xl">CCMS</a>
           </div>
         )}

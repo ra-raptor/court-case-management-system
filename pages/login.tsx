@@ -89,7 +89,7 @@ const Login = () => {
     <div data-theme="light">
       <LandingNavbar />
       <div className="hero min-h-screen  bg-base-200 w-full">
-        <div className="hero-content w-3/4 flex-col lg:flex-row-reverse">
+        <div className="hero-content sm:w-3/4 flex-col lg:flex-row-reverse">
           {/* <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
@@ -99,8 +99,10 @@ const Login = () => {
             </p>
           </div> */}
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <h1 className="text-5xl font-bold text-center pt-8">Login</h1>
-            <div className="card-body">
+            <h1 className="text-3xl sm:text-5xl font-bold text-center pt-8">
+              Login
+            </h1>
+            <div className="card-body p-4 sm:p-8">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

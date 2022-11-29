@@ -116,7 +116,7 @@ const AddCase = () => {
               <div>
                 <h2 className="text-2xl  py-3 ">Basic Information</h2>
                 {/* court name and state and type */}
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">
@@ -156,7 +156,7 @@ const AddCase = () => {
                   </div>
                 </div>
                 {/* case type and nature */}
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">
@@ -201,7 +201,7 @@ const AddCase = () => {
               <div>
                 <h2 className="text-2xl  py-6 ">Complainant Information</h2>
                 {/* complainant name a */}
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">
@@ -218,7 +218,7 @@ const AddCase = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">Email ( Required )</span>
@@ -255,7 +255,7 @@ const AddCase = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">Date of Birth</span>
@@ -305,7 +305,7 @@ const AddCase = () => {
                     className="input input-bordered "
                   />
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">City</span>
@@ -360,7 +360,7 @@ const AddCase = () => {
               <div>
                 <h2 className="text-2xl  py-6 ">Respondent Information</h2>
                 {/* complainant name a */}
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">
@@ -377,7 +377,7 @@ const AddCase = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">Email ( Required )</span>
@@ -411,7 +411,7 @@ const AddCase = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">Date of Birth</span>
@@ -461,7 +461,7 @@ const AddCase = () => {
                     className="input input-bordered "
                   />
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">City</span>
@@ -510,7 +510,7 @@ const AddCase = () => {
               <div>
                 <h2 className="text-2xl  py-6 ">Case Details</h2>
                 {/* complainant name a */}
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">
@@ -527,7 +527,7 @@ const AddCase = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-row items-center w-full">
+                <div className="md:flex flex-row items-center w-full">
                   <div className="form-control w-full  mb-6">
                     <label className="label">
                       <span className="label-text">Date of action</span>

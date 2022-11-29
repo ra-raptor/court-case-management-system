@@ -212,7 +212,7 @@ const Signup = () => {
       <h1 className="text-5xl  py-6  font-bold">Signup</h1>
       <Link href="/login">Back to Login</Link>
       <div className="py-6 mb-12 bg-base-200">
-        <ul className="transition-all steps w-1/2">
+        <ul className="transition-all steps w-full md:w-1/2 ">
           {steps.map((step, index) => {
             return (
               <li
@@ -229,7 +229,7 @@ const Signup = () => {
       </div>
       {steps[currentStep].jsx}
       <div className="grid place-items-center mb-10 border-white  bg-base-200">
-        <div className="flex w-1/2 px-10 mt-6  justify-between">
+        <div className="flex w-full md:w-1/2 px-10 mt-6  justify-between">
           <div
             className={`btn btn-outline ${
               currentStep === 0 ? "btn-disabled" : ""
